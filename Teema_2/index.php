@@ -73,11 +73,16 @@
         'id' => 2,
         'name' => 'Finland',
         'capital' => 'Helsinki',
-        'cities' => array('Oslo', 'Tartu')
+        'cities' => array('Oslo', 'Vantaa')
       ),  
     );
     foreach ($myCountries as $country) {
         echo $country['name'].' - '.$country['capital'];
+        echo '<ul>';
+          foreach ($country['cities'] as $city) {
+            echo '<li>'.$city.'</li>';
+          }
+          echo '</ul>';
     }
     ?>
 
