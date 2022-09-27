@@ -7,10 +7,10 @@ include_once('pizzaHeader.php');
 <?php
 if (isset($_SESSION['error']) || isset($_SESSION['comment'])) {
     if (isset($_SESSION['comment'])) {
-        echo '<h3>Precessing your order ...</h3>';
-        echo '<h4>Your order has been processed. Thank you.</h4><hr>';
+        // echo '<h3>Precessing your order ...</h3>';
+        echo '<hr><h4>Your order has been processed. Thank you.</h4><hr>';
 
-        echo '<p>Your pizza: <br>' . $_SESSION['comment'] . '</p>';
+        echo '<p>' . $_SESSION['comment'] . '</p>';
 
         echo '<hr><p><a href = "pizzaForm.php">Order another pizza</a></p>';
         unset($_SESSION['comment']);

@@ -13,6 +13,13 @@ if (isset($_POST['send'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $pizza = $_POST['pizza'];
     $amount = $_POST['amount'];
+    $cost = '';
+    include_once 'pizzas.php';
+    foreach ($pizzas as $ar_pizza => $pizza_info) {
+        if($ar_pizza == $pizza) {
+            $cost .= (float)$pizza_info * $amount;
+        }
+    }
 
     // Input fields validation
     if (trim($name) == '') {
@@ -48,9 +55,9 @@ if (isset($_POST['send'])) {
             <br>Your address: $address</br>
             <br>Your phone: $phone</br>
             <br>Your email: $email</br>
-            <br>Your pizza: $pizza</br>, $amount
+            <br>Your pizza: $pizza, amount: $amount </br>
+            <br>Final cost: $cost$</br>
             <hr>
-            Your pizza is already preparing<br>
             -------End order-------
         ";
         // mail($siteEmail, $subject, $comment);

@@ -49,10 +49,12 @@ include_once('pizzaHeader.php');
                             <div class="col-md-9">
                                 <select class="form-control" name="pizza">
                                     <option class="hidden" selected disabled>Choose a pizza</option>
-                                    <option>Margherita 5.45$</option>
-                                    <option>Pepperoni 6.85$</option>
-                                    <option>BBQ Chicken 7.99$</option>
-                                    <option>Veggie 3.49$</option>
+                                    <?php
+                                    include_once 'pizzas.php';
+                                    foreach ($pizzas as $pizza => $pizza_info) {
+                                        echo "<option value='$pizza'>" . $pizza . ' ' . $pizza_info . "$</option>";
+                                    }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -67,8 +69,8 @@ include_once('pizzaHeader.php');
 
                         <!-- Form actions -->
                         <div class="form-group">
-                            <div class="col-md-12 text-right">
-                                <button type="submit" class="btn btn-primary btn-lg" name="send">Send Message</button>
+                            <div class="col-md-9 text-right">
+                                <button type="submit" class="btn btn-primary btn-lg" name="send">Confirm the order</button>
                             </div>
                         </div>
                     </fieldset>
