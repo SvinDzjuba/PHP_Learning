@@ -43,7 +43,11 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="text-uppercase text-center">
-						<!-- php code title -->
+							<?php
+							if(isset($title)) {
+								echo $title;
+							}
+							?>
 						</h2>
 						<hr>
 						<?php

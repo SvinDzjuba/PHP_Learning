@@ -22,6 +22,19 @@ if ($route == '' or $route == 'index.php') {
 	// Main page
 	Controller::StartSite();
 }
+elseif ($route == 'states') {
+	Controller::StateList();	
+}
+elseif ($route == 'citiesState') {
+	if(isset($id)) {
+		Controller::citiesListByState($id);
+	} else {
+		Controller::error404();
+	}
+}
+elseif ($route == 'cities') {
+	Controller::CitiesList();
+}
 else {
 	// Page is not existing
 	Controller::error404();

@@ -12,7 +12,7 @@ class database {
 		$this->host = 'localhost'; //hostname
         $this->user = 'root'; //username
         $this->password = ''; //password
-        $this->baseName = 'world2021'; //name of your database        
+        $this->baseName = 'jptv20_world'; //name of your database        
         $this->connect(); //метод соединения с базой данных
     }
 
