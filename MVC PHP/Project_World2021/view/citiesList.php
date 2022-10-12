@@ -6,6 +6,10 @@ if(isset($state) && $state) {
     $title.=' - '.$state['Name'];
     $title.=' ('.count($citiesList).')';
     echo '<div class="textposition"><a href="states">К списку стран</a></div>';
+}elseif(isset($states) && $states){
+    $title.=' - '.$states['Name'];
+    $title.=' ('.count($citiesList).')';
+    echo '<div class="textposition"><a href="continent">К списку континента</a></div>';
 }
 ?>
 
@@ -35,6 +39,8 @@ if(isset($state) && $state) {
 <?php
 if(isset($state)) {
     echo '<div class="textposition"><a href="states">К списку стран</a></div>';
+}elseif(isset($states)) {
+    echo '<div class="textposition"><a href="continent">К списку континента</a></div>';
 }
 $content = ob_get_clean();
 include 'view/templates/layout.php';

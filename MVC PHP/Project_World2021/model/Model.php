@@ -25,5 +25,17 @@ class Model {
         $item = $db->getAll($sql);
         return $item;
     }
+    public static function getAllContinents() {
+        $sql = "SELECT DISTINCT Continent FROM country";
+        $db = new database();
+        $item = $db->getAll($sql);
+        return $item;
+    }
+    public static function getStatesByContinent($continent) {
+        $sql = "SELECT * FROM country WHERE Continent LIKE '".$continent."' ORDER BY Continent";
+        $db = new database();
+        $item = $db->getAll($sql);
+        return $item;
+    }
 }
 ?>

@@ -19,7 +19,6 @@ if (strstr($_SERVER['REQUEST_URI'], '?')) { //если найден символ
 //-----------------------
 
 if ($route == '' or $route == 'index.php') {
-	// Main page
 	Controller::StartSite();
 }
 elseif ($route == 'states') {
@@ -32,11 +31,23 @@ elseif ($route == 'citiesState') {
 		Controller::error404();
 	}
 }
+elseif ($route == 'citiesStateContinent') {
+	if(isset($id)) {
+		Controller::citiesListByStateContinent($id);
+	} else {
+		Controller::error404();
+	}
+}
 elseif ($route == 'cities') {
 	Controller::CitiesList();
 }
+elseif ($route == 'continent') {
+	Controller::statesAllContinents();
+}
+elseif ($route == 'continentStates') {
+	Controller::statesByContinent($id);
+}
 else {
-	// Page is not existing
 	Controller::error404();
 }
 ?>
