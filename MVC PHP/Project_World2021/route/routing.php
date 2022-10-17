@@ -45,8 +45,31 @@ elseif ($route == 'continent') {
 	Controller::statesAllContinents();
 }
 elseif ($route == 'continentStates') {
-	Controller::statesByContinent($id);
+	if(isset($id)) {
+		Controller::statesByContinent($id);
+	} else {
+		Controller::error404();
+	}
 }
+elseif ($route == 'countryList') {
+	ControllerCountry::CountryList();
+}
+elseif($route == 'add-country') {
+	ControllerCountry::CountryAddForm();
+}
+elseif($route == 'add-result') {
+	ControllerCountry::CountryAddResult() ;
+}
+
+// Search
+elseif ($route == 'search') {
+	if(isset($_GET['text'])) {
+		Controller::SearchByCode($_GET['text']);
+	} else {
+		Controller::error404();
+	}
+}
+// Page not found
 else {
 	Controller::error404();
 }

@@ -8,6 +8,7 @@
 	<!-- custom -->	
 	<link href="public/css/templatemo-style.css" rel="stylesheet">	
 	<link href="public/css/style.css" rel="stylesheet">
+	<link href="public/css/search.css" rel="stylesheet">
 	
 </head>
 <body>
@@ -19,15 +20,26 @@
 				<div class="navbar-header">				
 					<a href="./" class="navbar-brand"><strong>Сountries of the World</strong></a>
 					<br><hr>
-				</div>			
+				</div>
+				<div class="row">
+					<div class="search">
+						<form action="search" method="GET" class="form-search">
+							<input type="text" name="text" class="form-control input-sm" max-length="64" 
+								placeholder="Введите название или код страны" 
+							/>
+							<button type="submit" class="btn btn primary btn-sm">Search</button>
+						</form>
+					</div>
+				</div>		
 				<!--    меню              -->
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right tnav">
 						<?php
-							echo '<li><a href="./">Главная</a></li>';
-							echo '<li><a href="states">Государства</a></li>';
-							echo '<li><a href="cities">Города</a></li>';
-							echo '<li><a href="continent">Континенты</a></li>';
+							echo '<li><a style="font-size: 16px" href="./">Главная</a></li>';
+							echo '<li><a style="font-size: 16px" href="states">Государства</a></li>';
+							echo '<li><a style="font-size: 16px" href="cities">Города</a></li>';
+							echo '<li><a style="font-size: 16px" href="continent">Континенты</a></li>';
+							echo '<li><a style="font-size: 16px" href="countryList">Управлять</a></li>';
 						?>
 					</ul>
 				</div>

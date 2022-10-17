@@ -37,5 +37,11 @@ class Model {
         $item = $db->getAll($sql);
         return $item;
     }
+    public static function getStateByCode($name) {
+        $query = "SELECT * FROM country WHERE Code = '".$name."' OR Name LIKE '%".$name."%'";
+        $db = new database();
+        $item = $db->getOne($query);
+        return $item;
+    }
 }
 ?>
