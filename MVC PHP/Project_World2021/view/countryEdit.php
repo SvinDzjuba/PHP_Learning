@@ -1,32 +1,31 @@
 <?php
 ob_start();
-$title = 'Добавить страну';
+$title = 'Редактировать страну';
 ?>
 
 <?php
 $continents = array('Asia', 'Europe', 'North America', 'Africa', 'Oceania', 'Antarctica', 'South America');
 ?>
 <div class="box-header with-border">
-    <h3 class="box-title"><strong> Manage - Add country</strong></h3>
+    <h3 class="box-title"><strong> Manage - Edit country</strong></h3>
     <!-- error message -->
     <?php
-if (isset($error))
-    echo '<p>' . $error . '</p>';
-?>
+    if (isset($error)) echo '<p>' . $error . '</p>';
+    ?>
 </div>
 <div>
-    <form action="add-result" method="POST">
+    <form action="edit-result?<?php echo $country['Code']; ?>" method="POST">
         <div class="col-md-6" style="margin-top:10px;">
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>Code *:</strong>
-                    <input type="text" name="Code" class="form-control" placeholder="Code country" maxlength=3 required>
+                    <input type="text" name="Code" class="form-control" placeholder="Code country" value="<?php echo $country['Code']; ?>" maxlength=3 required>
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>Name *:</strong>
-                    <input type="text" name="Name" class="form-control" placeholder="Name country" required>
+                    <input type="text" name="Name" class="form-control" placeholder="Name country" value="<?php echo $country['Name']; ?>" required>
                 </div>
             </div>
             <div class="col-md-12">
@@ -35,7 +34,9 @@ if (isset($error))
                     <select name="Continent" class="form-control">
                         <?php
                         foreach ($continents as $continent) {
-                            echo '<option value="' . $continent . '" >' . $continent . '</option>';
+                            echo '<option value="' . $continent . '" ';
+                            if($continent == $country['Continent']) echo 'selected';
+                            echo '>' . $continent . '</option>';
                         }
                         ?>
                     </select>
@@ -44,13 +45,13 @@ if (isset($error))
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>Region:</strong>
-                    <input type="text" name="Region" class="form-control" placeholder="Region">
+                    <input type="text" name="Region" class="form-control" placeholder="Region" value="<?php echo $country['Region']; ?>">
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>IndepYear:</strong>
-                    <input type="text" name="IndepYear" class="form-control" placeholder="IndepYear">
+                    <input type="text" name="IndepYear" class="form-control" placeholder="IndepYear" value="<?php echo $country['IndepYear']; ?>">
                 </div>
             </div>
         </div>
@@ -58,29 +59,29 @@ if (isset($error))
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>Population:</strong>
-                    <input type="text" name="Population" class="form-control" placeholder="Population" value=0>
+                    <input type="text" name="Population" class="form-control" placeholder="Population"  value="<?php echo $country['Population']; ?>">
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>GovermentForm:</strong>
-                    <input type="text" name="GovernmentForm" class="form-control" placeholder="GovernmentForm">
+                    <input type="text" name="GovernmentForm" class="form-control" placeholder="GovernmentForm" value="<?php echo $country['GovernmentForm']; ?>">
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>HeadOfState:</strong>
-                    <input type="text" name="HeadOfState" class="form-control" placeholder="HeadOfState">
+                    <input type="text" name="HeadOfState" class="form-control" placeholder="HeadOfState" value="<?php echo $country['HeadOfState']; ?>">
                 </div>
             </div>
             <div class="col-md-12">
                 <div class="form-group">
                     <strong>Code2 - domen:</strong>
-                    <input type="text" name="Code2" class="form-control" placeholder="Code2 - domen" maxlength=2>
+                    <input type="text" name="Code2" class="form-control" placeholder="Code2 - domen" maxlength=2  value="<?php echo $country['Code2']; ?>">
                 </div>
             </div>
             <div class="col-md-12 text-center">
-                <button type="submit" class="btn btn-primary" name="send">Save country</button>
+                <button type="submit" class="btn btn-primary" name="send">Update country</button>
                 <a href="countryList" type="button" class="btn btn-primary">Back to list</a>
             </div>
         </div>

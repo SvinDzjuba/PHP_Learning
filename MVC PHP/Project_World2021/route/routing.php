@@ -60,6 +60,34 @@ elseif($route == 'add-country') {
 elseif($route == 'add-result') {
 	ControllerCountry::CountryAddResult() ;
 }
+elseif($route == 'edit-country') {
+	if(isset($id)) {
+		ControllerCountry::CountryEditForm($id);
+	} else {
+		Controller::error404();
+	}
+}
+elseif($route == 'edit-result') {
+	if(isset($id)) {
+		ControllerCountry::CountryEditResult($id);
+	} else {
+		Controller::error404();
+	}
+}
+elseif($route == 'delete-country') {
+	if(isset($id)) {
+		ControllerCountry::CountryDeleteForm($id);
+	} else {
+		Controller::error404();
+	}
+}
+elseif($route == 'delete-result') {
+	if(isset($id)) {
+		ControllerCountry::CountryDeleteResult($id);
+	} else {
+		Controller::error404();
+	}
+}
 
 // Search
 elseif ($route == 'search') {
