@@ -43,5 +43,11 @@ class Model {
         $item = $db->getOne($query);
         return $item;
     }
+    public static function getCountryCodes() {
+        $sql = "SELECT DISTINCT CountryCode FROM city ORDER BY CountryCode ASC";
+        $db = new database();
+        $item = $db->getAll($sql);
+        return $item;
+    }
 }
 ?>

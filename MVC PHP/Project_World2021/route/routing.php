@@ -51,6 +51,8 @@ elseif ($route == 'continentStates') {
 		Controller::error404();
 	}
 }
+
+// Manage countries
 elseif ($route == 'countryList') {
 	ControllerCountry::CountryList();
 }
@@ -89,6 +91,17 @@ elseif($route == 'delete-result') {
 	}
 }
 
+// Manage cities
+elseif($route == 'cityList') {
+	ControllerCity::CityList();
+}
+elseif($route == 'add-city') {
+	ControllerCity::CityAddForm();
+}
+elseif($route == 'add-city-result') {
+	ControllerCity::CityAddResult();
+}
+
 // Search
 elseif ($route == 'search') {
 	if(isset($_GET['text'])) {
@@ -97,6 +110,7 @@ elseif ($route == 'search') {
 		Controller::error404();
 	}
 }
+
 // Page not found
 else {
 	Controller::error404();
