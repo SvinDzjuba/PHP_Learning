@@ -34,10 +34,8 @@ if (isset($_POST['send'])) {
     if (!$email) {
         $errorString .= '<br>Wrong email address</br>';
     }
-    if (isset($pizza)) {
-        if($_POST['state'] == 'NULL') {
-            $errorString .= '<br>Please select an option from the select box.</br>';
-        }
+    if (!isset($pizza)) {
+        $errorString .= '<br>Please select an option from the select box.</br>';
     }
     if (trim($amount) == 0) {
         $errorString .= '<br>Choose at least one pizza</br>';

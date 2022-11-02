@@ -63,7 +63,7 @@ include_once('pizzaHeader.php');
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="amount">Amount</label>
                             <div class="col-md-9">
-                                <input id="amount" name="amount" type="number" placeholder="Amount" class="form-control" required>
+                                <input id="amount" name="amount" type="number" min="1" max="100" placeholder="Amount" class="form-control" required>
                             </div>
                         </div>
 
